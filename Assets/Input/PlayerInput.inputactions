@@ -2,14 +2,14 @@
     "name": "PlayerInput",
     "maps": [
         {
-            "name": "MovementePlayer",
+            "name": "Gameplay",
             "id": "ec6aadf2-84d5-4db9-8966-59bb9a286ffb",
             "actions": [
                 {
                     "name": "Movement",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "b3e664f7-0516-4366-8f38-6fdee71675c3",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -22,13 +22,40 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "LookAt",
+                    "type": "Value",
+                    "id": "c28b526c-5e8a-4540-b097-810289cafd24",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Crouch",
+                    "type": "Button",
+                    "id": "80135192-6c20-4ac2-b482-57f34f3f6bc4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Sprint",
+                    "type": "Button",
+                    "id": "879773da-c272-4b16-b414-420f48a618d3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
-                    "name": "1D Axis",
-                    "id": "de639196-6d93-427c-ad54-df804c4947e5",
-                    "path": "1DAxis",
+                    "name": "2D Vector",
+                    "id": "81fc3fe8-77c2-4763-9186-5f0a42e426f5",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -37,8 +64,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Negative",
-                    "id": "dd4bc7c4-9c40-4190-889b-e3c75eb1ecb8",
+                    "name": "Up",
+                    "id": "c716c909-4d34-4036-a683-29ba92ade455",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -48,8 +75,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Positive",
-                    "id": "5332661c-e40a-485a-8b30-99562732787b",
+                    "name": "Down",
+                    "id": "557cb5dc-2f51-4f38-80aa-49abf396c18e",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -59,19 +86,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "1D Axis",
-                    "id": "81fc3fe8-77c2-4763-9186-5f0a42e426f5",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "c716c909-4d34-4036-a683-29ba92ade455",
+                    "name": "Left",
+                    "id": "6fad123d-5ea9-4eee-915f-a6b7e2dee3d4",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -81,8 +97,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
-                    "id": "557cb5dc-2f51-4f38-80aa-49abf396c18e",
+                    "name": "Right",
+                    "id": "d46409fa-ac98-40b4-8fd9-4fa11da0431d",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -101,9 +117,54 @@
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f97541a6-2c03-4e56-816a-2615c4f7b543",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LookAt",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "09fdf3ef-cf16-405b-a26a-b5f1ccc38b1e",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7f75836e-9f57-49b1-8e60-636613737fe0",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
